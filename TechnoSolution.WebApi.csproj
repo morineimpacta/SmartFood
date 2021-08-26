@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TechnoSolution.Dominio\TechnoSolution.Dominio.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Scripts\" />
   </ItemGroup>
 
