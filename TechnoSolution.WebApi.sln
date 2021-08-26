@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnoSolution.WebApi", "TechnoSolution.WebApi.csproj", "{F2981B1D-F402-423E-9C61-DADF67E7DFCE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{56A620D0-AD7B-43CC-9F74-7F69E590C88A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnoSolution.Dominio", "..\TechnoSolution.Dominio\TechnoSolution.Dominio.csproj", "{93FDCE0F-9B41-4532-BDB8-11BF02ED098F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnoSolution.Dominio", "..\TechnoSolution.Dominio\TechnoSolution.Dominio.csproj", "{93FDCE0F-9B41-4532-BDB8-11BF02ED098F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +24,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F2981B1D-F402-423E-9C61-DADF67E7DFCE} = {56A620D0-AD7B-43CC-9F74-7F69E590C88A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {401800A3-E037-44B5-BDFD-9E99728D0514}
