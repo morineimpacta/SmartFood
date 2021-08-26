@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: dotnet publish
-      run: |
+      run:
         dotnet publish -c Release -o dotnetcorewebapp 
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
