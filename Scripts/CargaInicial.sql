@@ -1,6 +1,6 @@
 ﻿
 
-USE SmartFood;
+USE smartfoods4;
 
 --Drop Table dbo.ItemMenu;
 --Drop Table dbo.Categoria;
