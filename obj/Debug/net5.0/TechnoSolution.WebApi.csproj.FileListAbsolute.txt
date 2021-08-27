@@ -84,3 +84,6 @@ C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.dll
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\ref\TechnoSolution.WebApi.dll
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.pdb
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.genruntimeconfig.cache
+C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.csproj.AssemblyReference.cache
+C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.Properties.Resources.resources
+C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.csproj.GenerateResource.cache
