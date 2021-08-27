@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using NHibernate;
 using System.Collections.Generic;
 using System.Linq;
-using TechnoSolution.Dominio.Entidades;
+using TechnoSolution.Entidades;
 
 namespace TechnoSolution.WebApi.Controllers
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace TechnoSolution.Dominio.Entidades
+namespace TechnoSolution.Entidades
 {
     public class Categoria
     {

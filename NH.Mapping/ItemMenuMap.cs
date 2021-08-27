@@ -1,7 +1,7 @@
 ﻿using FluentNHibernate.Mapping;
-using TechnoSolution.Dominio.Entidades;
+using TechnoSolution.Entidades;
 
-namespace TechnoSolution.Dominio.NH.Mapping
+namespace TechnoSolution.NH.Mapping
 {
     public class ItemMenuMap: ClassMap<ItemMenu>
     {

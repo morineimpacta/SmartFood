@@ -1,6 +1,7 @@
 ﻿using FluentNHibernate.Mapping;
+using TechnoSolution.Entidades;
 
-namespace TechnoSolution.Dominio
+namespace TechnoSolution.NH.Mapping
 {
     public class UsuarioMap: ClassMap<Usuario>
     {

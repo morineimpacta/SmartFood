@@ -69,7 +69,6 @@ C:\Users\Morine\source\SmartFood\bin\Debug\net5.0\runtimes\win-x86\native\sni.dl
 C:\Users\Morine\source\SmartFood\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Morine\source\SmartFood\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Morine\source\SmartFood\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.csproj.AssemblyReference.cache
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.AssemblyInfoInputs.cache
 C:\Users\Morine\source\SmartFood\obj\Debug\net5.0\TechnoSolution.WebApi.AssemblyInfo.cs

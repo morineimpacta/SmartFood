@@ -3,7 +3,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace TechnoSolution.Dominio
+namespace TechnoSolution.Entidades
 {
     public class Usuario
     {

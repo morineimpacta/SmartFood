@@ -4,8 +4,7 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TechnoSolution.Dominio;
+using TechnoSolution.Entidades;
 
 namespace TechnoSolution.WebApi.Controllers
 {
