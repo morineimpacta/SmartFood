@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\TechnoSolution.WebApi.csproj": {}
+    "C:\\Users\\Morine\\source\\SmartFood\\TechnoSolution.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\TechnoSolution.WebApi.csproj": {
+    "C:\\Users\\Morine\\source\\SmartFood\\TechnoSolution.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\TechnoSolution.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Morine\\source\\SmartFood\\TechnoSolution.WebApi.csproj",
         "projectName": "TechnoSolution.WebApi",
-        "projectPath": "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\TechnoSolution.WebApi.csproj",
+        "projectPath": "C:\\Users\\Morine\\source\\SmartFood\\TechnoSolution.WebApi.csproj",
         "packagesPath": "C:\\Users\\Morine\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\obj\\",
+        "outputPath": "C:\\Users\\Morine\\source\\SmartFood\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

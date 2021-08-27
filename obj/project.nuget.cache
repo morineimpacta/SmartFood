@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PA0nl70qyBwPd5Tvro8zhADjZwpLxRY/vavzhYyXtakpdDdns0wbfHb8uFPiDPNcvsIeZ7kqbynJp/sdJdJ5lA==",
+  "dgSpecHash": "29vTUTZTSna5gv5w4AF8CZSDMxE/X/fDDi014EplMA6jYSBOYU9IsFZ0jFYUpbACW5HYRWOqJBXnj3yIFNMnTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Morine\\source\\repos\\TechnoSolution.WebApi\\TechnoSolution.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Morine\\source\\SmartFood\\TechnoSolution.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Morine\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\Morine\\.nuget\\packages\\fluentnhibernate\\3.1.0\\fluentnhibernate.3.1.0.nupkg.sha512",
