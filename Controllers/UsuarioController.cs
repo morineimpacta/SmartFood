@@ -48,7 +48,7 @@ namespace TechnoSolution.WebApi.Controllers
             return usuario;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Login")]
         public Usuario Post(string login, string senha)
         {

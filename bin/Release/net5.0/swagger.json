@@ -1,0 +1,321 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "TechnoSolution.WebApi",
+    "version": "v1"
+  },
+  "paths": {
+    "/Categoria": {
+      "get": {
+        "tags": [
+          "Categoria"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Categoria"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Estabelecimento": {
+      "get": {
+        "tags": [
+          "Estabelecimento"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Estabelecimento"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Estabelecimento"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Estabelecimento"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Estabelecimento"
+            }
+          }
+        }
+      }
+    },
+    "/ItemMenu": {
+      "get": {
+        "tags": [
+          "ItemMenu"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemMenu"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Usuario": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Usuario"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    },
+    "/Usuario/Login": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "login",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "senha",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Categoria": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "prioridade": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ativo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Estabelecimento": {
+      "type": "object",
+      "properties": {
+        "razaoSocial": {
+          "type": "string"
+        },
+        "nomeFantasia": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "senha": {
+          "type": "string"
+        },
+        "cnpj": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "nomeContato": {
+          "type": "string"
+        },
+        "numeroCelular": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "ItemMenu": {
+      "type": "object",
+      "properties": {
+        "titulo": {
+          "type": "string"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "imagem": {
+          "format": "byte",
+          "type": "string"
+        },
+        "quantidadePessoas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "calorias": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "peso": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "preco": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "tempoPreparo": {
+          "type": "string"
+        },
+        "linkVideo": {
+          "type": "string"
+        },
+        "categoria": {
+          "$ref": "#/definitions/Categoria"
+        },
+        "estabelecimento": {
+          "$ref": "#/definitions/Estabelecimento"
+        }
+      }
+    },
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "senha": {
+          "type": "string"
+        },
+        "cpf": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "numeroCelular": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "dataNascimento": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

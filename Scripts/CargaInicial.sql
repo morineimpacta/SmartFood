@@ -1,6 +1,6 @@
 ﻿
 
-USE smartfoods4;
+USE alunoimpacta4s;
 
 --Drop Table dbo.ItemMenu;
 --Drop Table dbo.Categoria;
