@@ -78,9 +78,29 @@ insert into dbo.Categoria values (6, 'Promocao', 6, 0);
 insert into dbo.ItemMenu values ('Ceviche', 'Ceviche de peixe branco e camarão', 123, 1, 200, 150, 35.50, '15 min', 'https://www.youtube.com/watch?v=hvAhk_9tl00', 1, 1, 1);
 
 
+
+select * from sys.tables where name = 'Pedido'
+select * from sys.columns where object_id = 594101157
+
+
+
+
+
+
+select * from dbo.Pagamento
+
+insert into dbo.PRATO_PEDIDO values (17, 1)
+insert into dbo.PRATO_PEDIDO values (11, 1)
+    
+
 --String to Base64
 SELECT CAST('teste123' as varbinary(max)) FOR XML PATH(''), BINARY BASE64
 
 --Base64 to String
 SELECT CAST( CAST( 'dGVzdGUxMjM=' as XML ).value('.','varbinary(max)') AS varchar(max) )
 
+
+SELECT 
+    pp.Pedido_id as pedido1_1_1_, pp.Prato_id as prato2_1_1_, pr.ID_PRATO as id1_2_0_, pr.NOME_PRATO as nome2_2_0_, pr.DESC_PRATO as desc3_2_0_, pr.AVALIACAO as avaliacao4_2_0_, pr.PEDIDOS as pedidos5_2_0_, pr.PRECO as preco6_2_0_, pr.ID_RESTAURANTE as id7_2_0_ 
+    FROM dbo.PRATO_PEDIDO pp 
+    left outer join dbo.Prato pr on pp.Prato_id=pr.ID_PRATO

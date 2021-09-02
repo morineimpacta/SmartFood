@@ -7,15 +7,13 @@ namespace TechnoSolution.NH.Mapping
     {
         public UsuarioMap()
         {
-            Id(x => x.Id);
-            Map(x => x.Nome);
-            Map(x => x.Login);
-            Map(x => x.Email);
-            Map(x => x.Senha);
-            Map(x => x.ExpiracaoSenha);
-            Map(x => x.CPF);
-            Map(x => x.NumeroCelular);
-            Map(x => x.DataNascimento);
+            Id(x => x.Id, "ID_USUARIO");
+            
+            Map(x => x.Nome, "NOME");
+            Map(x => x.Login, "LOGIN");
+            Map(x => x.Senha, "SENHA");
+            Map(x => x.Telefone, "TELEFONE");
+            Map(x => x.Visibilidade, "VISIBILIDADE");
 
             Table("dbo.Usuario");
         }

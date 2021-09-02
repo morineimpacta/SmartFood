@@ -9,23 +9,22 @@ namespace TechnoSolution.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CategoriaController : ControllerBase
+    public class PedidoController : ControllerBase
     {
-        private readonly ILogger<CategoriaController> _logger;
+        private readonly ILogger<PedidoController> _logger;
         private readonly ISession _session;
 
-        public CategoriaController(ILogger<CategoriaController> logger, ISession session)
+        public PedidoController(ILogger<PedidoController> logger, ISession session)
         {
             _logger = logger;
             _session = session;
         }
 
         [HttpGet]
-        public IEnumerable<Categoria> Get()
+        public IEnumerable<Pedido> Get()
         {
             return _session
-                .Query<Categoria>()
-                .Where(x => x.Ativo)
+                .Query<Pedido>()
                 .ToList();
         }
     }

@@ -10,26 +10,26 @@ namespace TechnoSolution.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EstabelecimentoController : ControllerBase
+    public class RestauranteController : ControllerBase
     {
-        private readonly ILogger<EstabelecimentoController> _logger;
+        private readonly ILogger<RestauranteController> _logger;
         private readonly ISession _session;
 
-        public EstabelecimentoController(ILogger<EstabelecimentoController> logger, ISession session)
+        public RestauranteController(ILogger<RestauranteController> logger, ISession session)
         {
             _logger = logger;
             _session = session;
         }
 
         [HttpGet]
-        public IEnumerable<Estabelecimento> Get()
+        public IEnumerable<Restaurante> Get()
         {
-            return _session.Query<Estabelecimento>().ToList();
+            return _session.Query<Restaurante>().ToList();
         }
 
 
         [HttpPost]
-        public Estabelecimento Post(Estabelecimento estab)
+        public Restaurante Post(Restaurante estab)
         {
             try
             {
