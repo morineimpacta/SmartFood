@@ -79,15 +79,18 @@ insert into dbo.ItemMenu values ('Ceviche', 'Ceviche de peixe branco e camarão'
 
 
 
-select * from sys.tables where name = 'Pedido'
-select * from sys.columns where object_id = 594101157
+select * from sys.tables where name = 'Usuario'
+select * from sys.columns where object_id = 1717581157
+select * from system_type where 
 
 
 
 
 
 
-select * from dbo.Pagamento
+
+
+select * from dbo.Usuario
 
 insert into dbo.PRATO_PEDIDO values (17, 1)
 insert into dbo.PRATO_PEDIDO values (11, 1)

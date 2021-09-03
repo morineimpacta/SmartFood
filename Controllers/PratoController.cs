@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NHibernate;
+using NHibernate.Linq;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TechnoSolution.Entidades;
 
 namespace TechnoSolution.WebApi.Controllers
@@ -12,38 +13,53 @@ namespace TechnoSolution.WebApi.Controllers
     public class PratoController : ControllerBase
     {
         private readonly ILogger<PratoController> _logger;
-        private readonly ISession _session;
+        private readonly NHibernate.ISession _session;
 
-        public PratoController(ILogger<PratoController> logger, ISession session)
+        public PratoController(ILogger<PratoController> logger, NHibernate.ISession session)
         {
             _logger = logger;
             _session = session;
         }
 
+        /// <summary>
+        /// Lista os pratos existentes
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Prato))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet]
-        public IEnumerable<Prato> Get()
+        public async Task<IEnumerable<Prato>> Get()
         {
-            return _session.Query<Prato>().ToList();
+            return await _session.Query<Prato>().ToListAsync();
         }
 
+        /// <summary>
+        /// Cria um novo prato
+        /// </summary>
+        /// <param name="prato"></param>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Prato))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpPost]
-        public Prato Post(Prato prato)
+        public async Task<IActionResult> Post(Prato prato)
         {
             try
             {
                 using (var session = _session.BeginTransaction())
                 {
-                    _session.Save(prato);
+                    await _session.SaveAsync(prato);
 
                     session.Commit();
                 }
+
+                return CreatedAtAction(nameof(Get), new { id = prato.Id }, prato);
             }
             catch (System.Exception ex)
             {
                 _logger.Log(LogLevel.Error, ex.Message);
+                return BadRequest();
             }
-
-            return prato;
         }
 
     }

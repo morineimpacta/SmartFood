@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NHibernate;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TechnoSolution.Entidades;
 
 namespace TechnoSolution.WebApi.Controllers
@@ -13,67 +14,91 @@ namespace TechnoSolution.WebApi.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly ILogger<UsuarioController> _logger;
-        private readonly ISession _session;
+        private readonly NHibernate.ISession _session;
 
-        public UsuarioController(ILogger<UsuarioController> logger, ISession session)
+        public UsuarioController(ILogger<UsuarioController> logger, NHibernate.ISession session)
         {
             _logger = logger;
             _session = session;
         }
 
+        /// <summary>
+        /// Lista todos os usuários da base
+        /// </summary>
+        /// <returns>Lista de usuarios</returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Usuario))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet]
-        public IEnumerable<Usuario> Get()
+        public async Task<IEnumerable<Usuario>> Get()
         {
-            return _session.Query<Usuario>().ToList();
+            return await _session.Query<Usuario>().ToListAsync();
         }
 
-
+        /// <summary>
+        /// Cria um usuário para o app
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public Usuario Post(Usuario usuario)
+        public async Task<IActionResult> Post(Usuario usuario)
         {
             try
             {
                 using (var session = _session.BeginTransaction())
                 {
-                    _session.Save(usuario);
+                    await _session.SaveAsync(usuario);
 
                     session.Commit();
                 }
+
+                return CreatedAtAction(nameof(Get), new { id = usuario.Id }, usuario);
             }
             catch (Exception ex)
             {
                 _logger.Log(LogLevel.Error, ex.Message);
+                return BadRequest();
             }
-
-            return usuario;
         }
 
+        /// <summary>
+        /// Valida se a senha do usuario está correta
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Login")]
-        public Usuario Post(string login, string senha)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Usuario))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Post(string login, string senha)
         {
             try
             {
-                var bytes = Convert.FromBase64String(senha);
+                //var bytes = Convert.FromBase64String(senha);
 
-                var usuario = _session.Query<Usuario>()
-                    .First(x => x.Login == login);
+                var usuario = await _session.Query<Usuario>()
+                    .FirstAsync(x => x.Login == login);
 
                 if(usuario == null)
                 {
-                    _logger.Log(LogLevel.Information, "Usuario nao encontrado");
+                    _logger.Log(LogLevel.Information, "Usuario não encontrado");
+                    return NotFound();
                 }
 
-                return usuario.Senha == senha ? usuario : null;
+                if (usuario.Senha == senha)
+                    return Ok(usuario);
+
+                return Unauthorized();
 
             }
             catch (Exception ex)
             {
                 _logger.Log(LogLevel.Error, ex.Message);
+                return BadRequest();
             }
-
-            return null;
         }
-
     }
 }

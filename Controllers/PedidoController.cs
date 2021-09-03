@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NHibernate;
+using NHibernate.Linq;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using TechnoSolution.Entidades;
 
 namespace TechnoSolution.WebApi.Controllers
@@ -12,20 +13,24 @@ namespace TechnoSolution.WebApi.Controllers
     public class PedidoController : ControllerBase
     {
         private readonly ILogger<PedidoController> _logger;
-        private readonly ISession _session;
+        private readonly NHibernate.ISession _session;
 
-        public PedidoController(ILogger<PedidoController> logger, ISession session)
+        public PedidoController(ILogger<PedidoController> logger, NHibernate.ISession session)
         {
             _logger = logger;
             _session = session;
         }
 
+        /// <summary>
+        /// Lista os pedidos criados
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Pedido))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet]
-        public IEnumerable<Pedido> Get()
+        public async Task<IEnumerable<Pedido>> Get()
         {
-            return _session
-                .Query<Pedido>()
-                .ToList();
+            return await _session.Query<Pedido>().ToListAsync();
         }
     }
 }
