@@ -22,16 +22,9 @@ namespace TechnoSolution.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AnotherPolicy",
-                    builder =>
-                    {
-                        builder.AllowAnyHeader().AllowAnyMethod();
-                    });
-            });
-
             services.AddControllers();
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TechnoSolution.WebApi", Version = "v1" });
@@ -68,7 +61,9 @@ namespace TechnoSolution.WebApi
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors(
+                options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+            );
 
             app.UseAuthorization();
 

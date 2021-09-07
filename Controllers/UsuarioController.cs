@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NHibernate.Linq;
@@ -71,27 +70,26 @@ namespace TechnoSolution.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("Login")]
-        [EnableCors("AnotherPolicy")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Usuario))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Post(string login, string senha)
+        public async Task<IActionResult> Login(Usuario usuario)
         {
             try
             {
                 //var bytes = Convert.FromBase64String(senha);
 
-                var usuario = await _session.Query<Usuario>()
-                    .FirstAsync(x => x.Login == login);
+                var usuarioDB = await _session.Query<Usuario>()
+                    .FirstAsync(x => x.Login == usuario.Login);
 
-                if(usuario == null)
+                if(usuarioDB == null)
                 {
                     _logger.Log(LogLevel.Information, "Usuario não encontrado");
                     return NotFound();
                 }
 
-                if (usuario.Senha == senha)
-                    return Ok(usuario);
+                if (usuarioDB.Senha == usuario.Senha)
+                    return Ok(usuarioDB);
 
                 return Unauthorized();
 
