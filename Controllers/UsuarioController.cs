@@ -71,7 +71,7 @@ namespace TechnoSolution.WebApi.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("Login")]
-        [EnableCors]
+        [EnableCors("AnotherPolicy")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Usuario))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
