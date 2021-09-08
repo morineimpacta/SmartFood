@@ -89,8 +89,12 @@ select * from system_type where
 
 
 
+select * from REstaurante
 
-select * from dbo.Usuario
+update restaurante set url = 'https://static-images.ifood.com.br/image/upload/t_high/logosgde/15266cdd-0857-4b8f-bc3c-f6e0121b9760/201906271941_2QRM_i.jpg'
+where id_restaurante = 7;
+
+sp_help Usuario
 
 insert into dbo.PRATO_PEDIDO values (17, 1)
 insert into dbo.PRATO_PEDIDO values (11, 1)

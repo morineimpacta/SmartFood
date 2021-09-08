@@ -10,5 +10,6 @@ namespace TechnoSolution.Entidades
         public virtual string Rua { get; set; }
         public virtual int Numero { get; set; }
         public virtual decimal Avaliacao { get; set; }
+        public virtual string URL { get; set; }
     }
 }

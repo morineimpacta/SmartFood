@@ -15,6 +15,7 @@ namespace TechnoSolution.NH.Mapping
             Map(x => x.Rua, "RUA");
             Map(x => x.Numero, "NUMERO");
             Map(x => x.Avaliacao, "AVALIACAO");
+            Map(x => x.URL, "URL");
 
             Table("dbo.Restaurante");
         }
