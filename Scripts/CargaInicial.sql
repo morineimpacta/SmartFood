@@ -89,7 +89,11 @@ select * from system_type where
 
 
 
-select * from REstaurante
+select * from Restaurante
+
+
+
+
 
 update restaurante set url = 'https://static-images.ifood.com.br/image/upload/t_high/logosgde/15266cdd-0857-4b8f-bc3c-f6e0121b9760/201906271941_2QRM_i.jpg'
 where id_restaurante = 7;
